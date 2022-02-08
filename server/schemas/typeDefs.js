@@ -21,7 +21,7 @@ type Thought {
   username: String
   reactionCount: Int
   reactions: [Reaction]
-} 
+}
 
 type Reaction {
   _id: ID
@@ -35,6 +35,16 @@ type Query {
   user(username: String!): User
   thoughts(username: String): [Thought]
   thought(_id: ID!): Thought
+}
+
+type Mutation {
+  login(email: String!, password: String!): Auth
+  addUser(username: String!, email: String!, password: String!): Auth
+}
+
+type Auth {
+  token: ID!
+  user: User
 }
 `;
 
