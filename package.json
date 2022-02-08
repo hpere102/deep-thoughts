@@ -4,9 +4,11 @@
   "description": "",
   "main": "server/server.js",
   "scripts": {
-    "start": "node server/server.js",
     "watch": "nodemon",
-    "seed": "node server/seeders/seeds.js"
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +23,15 @@
     "mongoose": "^5.9.9"
   },
   "devDependencies": {
+    "concurrently": "^7.0.0",
     "nodemon": "^2.0.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hpere102/deep-thoughts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hpere102/deep-thoughts/issues"
+  },
+  "homepage": "https://github.com/hpere102/deep-thoughts#readme"
 }
